@@ -37,9 +37,10 @@ export CLIENT_NFS_PV=<PV CLIENT DIRECTORY HERE>         # This directory will ac
 export Pi_SUBNET=<Pi SUBNET HERE>                       # Can be changed to specific IP(s). For the ease of use, allow the entire Pi's subnet. Example: 172.16.1.0/24
 
 # rclone parameters
-export rclone_CONFIG_NAME = <rclone CONFIG NAME HERE>            # rclone configuration name                                             
-export AZURE_BLOB_ACCOUNT = <AZURE STORAGE ACCOUNT NAME HERE>    # Target Azure storage account name 
-export AZURE_BLOB_KEY = <AZURE STORAGE ACCOUNT KEY HERE>         # Target Azure storage account key
+export rclone_CONFIG_NAME = "rclone CONFIG NAME HERE"                               # rclone configuration name. For example "armadillo_azure_config"                                             
+export AZURE_BLOB_ACCOUNT = "AZURE STORAGE ACCOUNT NAME HERE"                       # Target Azure storage account name. For example "armadillodata"
+export AZURE_BLOB_CONTAINER = "AZURE STORAGE ACCOUNT BLOB CONTAINER NAME HERE"      # Target Azure storage account blob container name. For example "armadillo_k8s_data"
+export AZURE_BLOB_KEY = "AZURE STORAGE ACCOUNT KEY HERE"                            # Target Azure storage account key
 
 # No need to change unless you have more then 3 masters and 2 workers
 export MASTERS_HOSTS="$MASTER01_HOSTNAME $MASTER02_HOSTNAME $MASTER03_HOSTNAME"
