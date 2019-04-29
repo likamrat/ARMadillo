@@ -1,8 +1,8 @@
 # Set env vars
 
 # Pi creds
-export  Pi_USERNAME=pi
-export  Pi_PASSWORD=raspberry
+export  Pi_USERNAME="Pi OS USERNAME HERE"   # Pi default OS username is "pi"
+export  Pi_PASSWORD="Pi OS PASSWORD HERE"   # Pi default OS password is "raspberry"
 
 # Network parameters
 export  LOAD_BALANCER_HOSTNAME=<LB HOSTNAME HERE>
