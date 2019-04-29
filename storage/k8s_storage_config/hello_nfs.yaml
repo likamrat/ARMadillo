@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-nfs 
+  labels:
+    name: hello-nfs
+spec:
+  containers:
+    - name: hello-nfs
+      image: nginx
+      ports:
+        - name: web
+          containerPort: 80
+      volumeMounts:
+        - name: nfsvol 
+          mountPath: /usr/share/nginx/html 
+      command: ["/bin/sh"]
+      args: ["-c", "while true; do date >> /usr/share/nginx/html/dates.txt; sleep 3; done"]
+  volumes:
+    - name: nfsvol
+      persistentVolumeClaim:
+        claimName: nfs-pvc 
+        
