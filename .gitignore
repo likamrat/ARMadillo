@@ -4,4 +4,4 @@ secrets/
 replace/
 bootstrap/
 scripts/
-addons/traefik/
+addons/traefik
