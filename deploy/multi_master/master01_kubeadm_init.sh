@@ -2,7 +2,7 @@
 exec &> >(tee -a kubeadm_run.log)
 
 # Source env vars
-source armadillo/deploy/multi_master/env_vars.sh
+source ARMadillo/deploy/multi_master/env_vars.sh
 
 # Create kubeadm config file and start kubeadm init
 sudo cat <<EOT >> kubeadm-config.yaml

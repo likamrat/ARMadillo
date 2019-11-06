@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source env vars
-source armadillo/deploy/single_master/env_vars.sh
+source ARMadillo/deploy/single_master/env_vars.sh
 
 # Change the hostname
 sudo hostnamectl --transient set-hostname $WORKER05_HOSTNAME

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source env vars
-source armadillo/deploy/multi_master/env_vars.sh
+source ARMadillo/deploy/multi_master/env_vars.sh
 
 # Change the hostname
 sudo hostnamectl --transient set-hostname $LOAD_BALANCER_HOSTNAME

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source env vars
-source armadillo/deploy/multi_master/env_vars.sh
+source ARMadillo/deploy/multi_master/env_vars.sh
 
 # This installs the base instructions up to the point of joining / creating a cluster
 

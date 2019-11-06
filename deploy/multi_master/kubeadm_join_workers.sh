@@ -2,7 +2,7 @@
 exec &> >(tee -a kubeadm_run.log)
 
 # Source env vars
-source armadillo/deploy/multi_master/env_vars.sh
+source ARMadillo/deploy/multi_master/env_vars.sh
 
 # Joining the worker to the cluster using the token generated from the kubeadm init on master01
 ./join_worker.sh
