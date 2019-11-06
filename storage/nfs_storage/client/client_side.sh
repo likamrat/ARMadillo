@@ -3,7 +3,7 @@
 source env_vars.sh
 
 sudo apt update
-sudo apt install nfs-common -qy
+sudo apt-get install nfs-common -qy
 
 sudo mkdir $CLIENT_NFS_PV -p
 sudo mount $NFS_SERVER:$SERVER_NFS_MOUNT $CLIENT_NFS_PV
