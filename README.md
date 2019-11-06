@@ -48,6 +48,8 @@ This step can ~5-10min per node as the script upgrade and update the Pi OS and i
 
 Before moving to next step, wait for all masters and workers nodes to restart. 
 
-### Install kubeadm on MASTER01
+### Install kubeadm
 
-8. 
+8. On *MASTER01 only*, run the kubeadm initialization script.
+
+./ARMadillo/deploy/multi_master/master01_kubeadm_init.sh

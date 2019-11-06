@@ -5,14 +5,18 @@ source ARMadillo/deploy/multi_master/env_vars.sh
 
 # This installs the base instructions up to the point of joining / creating a cluster
 
+sudo apt-mark hold "containerd.io"
+sudo apt-mark hold "docker-ce"
+sudo apt-mark hold "docker-ce-cli"
+
 sudo apt-get update
 sudo apt-get upgrade -y
 
 sudo apt-get install sshpass -qy
 
-sudo dphys-swapfile swapoff && \
-  sudo dphys-swapfile uninstall && \
-  sudo update-rc.d dphys-swapfile remove
+# Disable swap
+sudo swapoff -a
+sudo systemctl disable dphys-swapfile
 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
   echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \

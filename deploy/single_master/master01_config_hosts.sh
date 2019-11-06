@@ -46,6 +46,28 @@ sudo dpkg -i docker-ce_18.09.7~3-0~debian-buster_armhf.deb
 
 sudo usermod $Pi_USERNAME -aG docker
 
+# Setup daemon
+sudo bash -c 'cat << EOF > /etc/docker/daemon.json
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2"
+}
+EOF'
+
+sudo mkdir -p /etc/systemd/system/docker.service.d
+
+# Restart docker.
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+sudo apt-mark hold "containerd.io"
+sudo apt-mark hold "docker-ce"
+sudo apt-mark hold "docker-ce-cli"
+
 sudo rm -f *docker* *containerd*
 
 sudo reboot
