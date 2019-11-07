@@ -21,9 +21,9 @@ echo "Wait, pulling k8s images needed..."
 sudo kubeadm config images pull
 sudo ./join_master.sh
 
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+# mkdir -p $HOME/.kube
+# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+# sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Getting status
 echo "Almost there, wait a bit for the master node to be in 'Ready' state (sleeping 90s)"
@@ -33,7 +33,6 @@ kubectl get nodes
 
 # # Cleanup
 # mkdir -p ARMadillo/artifacts
+# sudo rm -f config
 # sudo mv join_master.sh ARMadillo/artifacts
-# sudo mv config ARMadillo/artifacts
-# sudo mv ca.pem ARMadillo/artifacts
-# sudo rm -f admin.conf 
+# sudo mv kubeadm_run.log ARMadillo/artifacts
