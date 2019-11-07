@@ -55,3 +55,8 @@ Before moving to next step, wait for all masters and workers nodes to restart.
 8. On *MASTER01 only*, run the kubeadm initialization script.
 
 ./ARMadillo/deploy/multi_master/master01_kubeadm_init.sh
+
+Results should like this:
+
+<ADD_PIC>
+

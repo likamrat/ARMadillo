@@ -59,10 +59,28 @@ for host in ${WORKERS_HOSTS}; do
     sudo sshpass -p $Pi_PASSWORD rsync -a .kube/config $Pi_USERNAME@$host:
 done
 
-kubectl get nodes
+# Cleanup
+mkdir -p ARMadillo/artifacts
+sudo mv join_master.sh ARMadillo/artifacts
+sudo mv join_worker.sh ARMadillo/artifacts
+sudo mv config ARMadillo/artifacts
+sudo mv ca.crt ARMadillo/artifacts
+sudo mv ca.pem ARMadillo/artifacts
+sudo mv ca.key ARMadillo/artifacts
+sudo mv sa.key ARMadillo/artifacts
+sudo mv sa.pub ARMadillo/artifacts
+sudo mv front-proxy-ca.crt ARMadillo/artifacts
+sudo mv front-proxy-ca.key ARMadillo/artifacts
+sudo mv etcd-ca.crt ARMadillo/artifacts
+sudo mv etcd-ca.key ARMadillo/artifacts
+sudo mv kubeadm-config.yaml ARMadillo/artifacts
+sudo mv kubeadm_run.log ARMadillo/artifacts
+sudo mv kubernetes-key.pem ARMadillo/artifacts
+sudo mv kubernetes.pem ARMadillo/artifacts
 
-echo "Almost there, waiting for all pods to run and for the master node to be in Ready state (sleeping 90s)"
-sleep 90
+# Getting final status
+echo "Almost there, waiting for all pods to run and for the master node to be in Ready state (sleeping 75s)"
+sleep 75
 
 kubectl get pod -n kube-system
 kubectl get nodes

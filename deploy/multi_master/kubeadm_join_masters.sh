@@ -19,12 +19,22 @@ sudo mv /home/${Pi_USERNAME}/admin.conf /etc/kubernetes/admin.conf
 # Joining the master to the cluster using the token generated from the kubeadm init on master01
 echo "Wait, pulling k8s images needed..."
 sudo kubeadm config images pull
-./join_master.sh
+sudo ./join_master.sh
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
+# Cleanup
+mkdir -p ARMadillo/artifacts
+sudo mv join_master.sh ARMadillo/artifacts
+sudo mv config ARMadillo/artifacts
+sudo mv ca.pem ARMadillo/artifacts
+sudo mv kubernetes-key.pem ARMadillo/artifacts
+sudo mv kubernetes.pem ARMadillo/artifacts
+sudo mv kubeadm_run.log ARMadillo/artifacts
+
+# Getting final status
 echo "Almost there, wait a bit for the master node to join the cluster (sleeping 90s)"
 sleep 90
 
