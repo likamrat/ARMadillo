@@ -13,7 +13,7 @@ sudo mv /home/${Pi_USERNAME}/config .kube
 kubectl label node $HOSTNAME node-role.kubernetes.io/worker=worker
 
 # Getting status
-echo "Wait a bit for the worker node to join the cluster (sleeping 120s)"
+echo "Wait a bit for the worker node to be in 'Ready' state (sleeping 120s)"
 sleep 120
 
 kubectl get nodes
