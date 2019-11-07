@@ -25,17 +25,15 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
+# Getting status
+echo "Almost there, wait a bit for the master node to be in 'Ready' state (sleeping 90s)"
+sleep 90
+
+kubectl get nodes
+
 # Cleanup
 mkdir -p ARMadillo/artifacts
 sudo mv join_master.sh ARMadillo/artifacts
 sudo mv config ARMadillo/artifacts
 sudo mv ca.pem ARMadillo/artifacts
-sudo mv kubernetes-key.pem ARMadillo/artifacts
-sudo mv kubernetes.pem ARMadillo/artifacts
-sudo mv kubeadm_run.log ARMadillo/artifacts
-
-# Getting final status
-echo "Almost there, wait a bit for the master node to join the cluster (sleeping 90s)"
-sleep 90
-
-kubectl get nodes
+sudo rm -f admin.conf 

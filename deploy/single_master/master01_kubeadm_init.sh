@@ -37,15 +37,18 @@ for host in ${WORKERS_HOSTS}; do
     sudo sshpass -p $Pi_PASSWORD rsync -a .kube/config $Pi_USERNAME@$host:
 done
 
+# Getting status
+echo "Almost there, waiting for all pods to run and for the master node to be in 'Ready' state (sleeping 90s)"
+sleep 90
+
+kubectl get pod -n kube-system
+kubectl get nodes
+
+
+
 # Cleanup
 mkdir -p ARMadillo/artifacts
 sudo mv join_worker.sh ARMadillo/artifacts
 sudo mv config ARMadillo/artifacts
 sudo mv kubeadm_run.log ARMadillo/artifacts
-
-# Getting final status
-echo "Almost there, waiting for all pods to run and for the master node to be in Ready state (sleeping 90s)"
-sleep 90
-
-kubectl get pod -n kube-system
-kubectl get nodes
+sudo rm -f admin.conf 

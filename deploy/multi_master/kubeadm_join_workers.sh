@@ -12,13 +12,13 @@ sudo mv /home/${Pi_USERNAME}/config .kube
 
 kubectl label node $HOSTNAME node-role.kubernetes.io/worker=worker
 
-# Cleanup
-mkdir -p ARMadillo/artifacts
-sudo mv join_worker.sh ARMadillo/artifacts
-sudo mv kubeadm_run.log ARMadillo/artifacts
-
-# Getting final status
+# Getting status
 echo "Wait a bit for the worker node to join the cluster (sleeping 120s)"
 sleep 120
 
 kubectl get nodes
+
+# Cleanup
+mkdir -p ARMadillo/artifacts
+sudo mv join_worker.sh ARMadillo/artifacts
+sudo mv kubeadm_run.log ARMadillo/artifacts
