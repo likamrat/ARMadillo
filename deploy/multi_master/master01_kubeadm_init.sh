@@ -31,7 +31,7 @@ sed -i 's/^ *//' join_worker.sh
 sed -i '1s/^/sudo /' join_worker.sh
 sed -i '$d' join_worker.sh
 sed -i '$d' join_worker.sh
-sudo sed -i 's/[[:space:]]*$//' join_master.sh
+sudo sed -i 's/[[:space:]]*$//' join_worker.sh
 sudo chmod +x join_worker.sh
 
 # Creating .kube directory
@@ -40,10 +40,6 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Installing Weave CNI
-# https://github.com/weaveworks/weave/issues/3717
-sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
-sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
-
 sudo sysctl net.bridge.bridge-nf-call-iptables=1
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
