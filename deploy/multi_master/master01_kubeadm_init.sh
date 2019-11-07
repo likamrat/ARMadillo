@@ -59,23 +59,6 @@ for host in ${WORKERS_HOSTS}; do
     sudo sshpass -p $Pi_PASSWORD rsync -a .kube/config $Pi_USERNAME@$host:
 done
 
-# Cleanup
-mkdir -p ARMadillo/artifacts
-sudo mv join_master.sh ARMadillo/artifacts
-sudo mv join_worker.sh ARMadillo/artifacts
-sudo mv config ARMadillo/artifacts
-sudo mv ca.crt ARMadillo/artifacts
-sudo mv ca.key ARMadillo/artifacts
-sudo mv sa.key ARMadillo/artifacts
-sudo mv sa.pub ARMadillo/artifacts
-sudo mv front-proxy-ca.crt ARMadillo/artifacts
-sudo mv front-proxy-ca.key ARMadillo/artifacts
-sudo mv etcd-ca.crt ARMadillo/artifacts
-sudo mv etcd-ca.key ARMadillo/artifacts
-sudo mv kubeadm-config.yaml ARMadillo/artifacts
-sudo mv kubeadm_run.log ARMadillo/artifacts
-sudo rm -f admin.conf 
-
 # Getting status
 echo "Almost there, waiting for all pods to run and for the master node to be in 'Ready' state (sleeping 75s)"
 sleep 75
@@ -90,3 +73,20 @@ done
 for host in ${WORKERS_HOSTS}; do
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'sudo ./ARMadillo/deploy/multi_master/kubeadm_join_workers.sh'
 done
+
+# # Cleanup
+# mkdir -p ARMadillo/artifacts
+# sudo mv join_master.sh ARMadillo/artifacts
+# sudo mv join_worker.sh ARMadillo/artifacts
+# sudo mv config ARMadillo/artifacts
+# sudo mv ca.crt ARMadillo/artifacts
+# sudo mv ca.key ARMadillo/artifacts
+# sudo mv sa.key ARMadillo/artifacts
+# sudo mv sa.pub ARMadillo/artifacts
+# sudo mv front-proxy-ca.crt ARMadillo/artifacts
+# sudo mv front-proxy-ca.key ARMadillo/artifacts
+# sudo mv etcd-ca.crt ARMadillo/artifacts
+# sudo mv etcd-ca.key ARMadillo/artifacts
+# sudo mv kubeadm-config.yaml ARMadillo/artifacts
+# sudo mv kubeadm_run.log ARMadillo/artifacts
+# sudo rm -f admin.conf 

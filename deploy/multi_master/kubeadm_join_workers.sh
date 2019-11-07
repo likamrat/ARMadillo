@@ -18,7 +18,7 @@ sleep 120
 
 kubectl get nodes
 
-# Cleanup
-mkdir -p ARMadillo/artifacts
-sudo mv join_worker.sh ARMadillo/artifacts
-sudo mv kubeadm_run.log ARMadillo/artifacts
+# # Cleanup
+# mkdir -p ARMadillo/artifacts
+# sudo mv join_worker.sh ARMadillo/artifacts
+# sudo mv kubeadm_run.log ARMadillo/artifacts

@@ -31,9 +31,9 @@ sleep 90
 
 kubectl get nodes
 
-# Cleanup
-mkdir -p ARMadillo/artifacts
-sudo mv join_master.sh ARMadillo/artifacts
-sudo mv config ARMadillo/artifacts
-sudo mv ca.pem ARMadillo/artifacts
-sudo rm -f admin.conf 
+# # Cleanup
+# mkdir -p ARMadillo/artifacts
+# sudo mv join_master.sh ARMadillo/artifacts
+# sudo mv config ARMadillo/artifacts
+# sudo mv ca.pem ARMadillo/artifacts
+# sudo rm -f admin.conf 
