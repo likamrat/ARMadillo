@@ -25,7 +25,7 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-echo "Almost there, wait a bit for the master node to join the cluster (sleeping 75s)"
-sleep 75
+echo "Almost there, wait a bit for the master node to join the cluster (sleeping 90s)"
+sleep 90
 
 kubectl get nodes

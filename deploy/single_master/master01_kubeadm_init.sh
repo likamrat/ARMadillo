@@ -20,9 +20,6 @@ grep "kubeadm join\|--discovery-token-ca-cert-hash" kubeadm_run.log > join_worke
 sed -i '3,4d' join_worker.sh
 sed -i 's/^ *//' join_worker.sh
 sed -i '1s/^/sudo /' join_worker.sh
-sed -i '$d' join_worker.sh
-sed -i '$d' join_worker.sh
-sudo sed -i 's/[[:space:]]*$//' join_master.sh
 sudo chmod +x join_worker.sh
 
 # Creating .kube directory
@@ -41,6 +38,7 @@ for host in ${WORKERS_HOSTS}; do
 done
 
 kubectl get nodes
+
 echo "Almost there, waiting for all pods to run and for the master node to be in Ready state (sleeping 90s)"
 sleep 90
 
