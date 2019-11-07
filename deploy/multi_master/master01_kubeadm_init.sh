@@ -84,7 +84,7 @@ kubectl get pod -n kube-system
 kubectl get nodes
 
 for host in ${MASTERS_HOSTS}; do
-    sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'sudo ./ARMadillo/deploy/multi_master/kubeadm_join_workers.sh'
+    sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'sudo ./ARMadillo/deploy/multi_master/kubeadm_join_masters.sh'
 done
 
 for host in ${WORKERS_HOSTS}; do
