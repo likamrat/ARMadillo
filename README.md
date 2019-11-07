@@ -4,7 +4,9 @@
 
 1. Edit your local hosts file where you will connect to the PI's from and add the HAProxy, masters and workers nodes hostname and IP. 
 
-2. 
+2. On each Pi, upgrade Pi firmware using the sudo rpi-update command.
+<!-- https://github.com/weaveworks/weave/issues/3717 -->
+<!-- https://github.com/Hexxeh/rpi-update -->
 
 
 

@@ -6,7 +6,7 @@ source ARMadillo/deploy/single_master/env_vars.sh
 
 # Create kubeadm config file and start kubeadm init
 sudo cat <<EOT >> kubeadm-config.yaml
-apiVersion: kubeadm.k8s.io/v1beta1
+apiVersion: kubeadm.k8s.io/v1beta2
 kind: ClusterConfiguration
 kubernetesVersion: stable
 EOT
@@ -20,6 +20,9 @@ grep "kubeadm join\|--discovery-token-ca-cert-hash" kubeadm_run.log > join_worke
 sed -i '3,4d' join_worker.sh
 sed -i 's/^ *//' join_worker.sh
 sed -i '1s/^/sudo /' join_worker.sh
+sed -i '$d' join_worker.sh
+sed -i '$d' join_worker.sh
+sudo sed -i 's/[[:space:]]*$//' join_master.sh
 sudo chmod +x join_worker.sh
 
 # Creating .kube directory
@@ -37,8 +40,8 @@ for host in ${WORKERS_HOSTS}; do
 done
 
 kubectl get nodes
-echo "Almost there, waiting for all pods to run and for the master node to be in Ready state (sleeping 60s)"
-sleep 75
+echo "Almost there, waiting for all pods to run and for the master node to be in Ready state (sleeping 90s)"
+sleep 90
 
 kubectl get pod -n kube-system
 kubectl get nodes
