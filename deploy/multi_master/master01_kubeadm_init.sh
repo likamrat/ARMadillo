@@ -37,6 +37,10 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # Installing Weave CNI
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
+# Getting status
+echo "Waiting for MASTER01 to be in 'Ready' state (sleeping 60s)"
+sleep 60
+
 # Joining the other Master nodes to the cluster 
 for host in ${MASTERS_HOSTS_INIT}; do
     sudo sshpass -p $Pi_PASSWORD rsync -p -a --chmod=+x join_master.sh $Pi_USERNAME@$host:
@@ -64,6 +68,7 @@ for host in ${MASTERS_HOSTS_INIT}; do
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'echo "Wait, pulling k8s images needed..."'
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'sudo kubeadm config images pull'
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host './join_master.sh'
+    sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'kubectl label node $HOSTNAME node-role.kubernetes.io/master=master'
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'mkdir -p ARMadillo/artifacts'
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'sudo mv join_master.sh ARMadillo/artifacts'
 done
