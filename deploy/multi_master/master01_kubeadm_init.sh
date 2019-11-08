@@ -74,7 +74,7 @@ for host in ${MASTERS_HOSTS_INIT}; do
 done
 
 # Getting status
-echo "Waiting for other Master nodes to be in 'Ready' state (sleeping 60s)"
+echo "Waiting for the other Master nodes to be in 'Ready' state (sleeping 60s)"
 sleep 60
 
 # Joining the Worker nodes to the cluster 
