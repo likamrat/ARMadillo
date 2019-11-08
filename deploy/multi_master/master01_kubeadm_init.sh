@@ -38,7 +38,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
 # Getting status
-echo "Waiting for MASTER01 to be in 'Ready' state (sleeping 60s)"
+echo "Waiting for the first Master node to be in 'Ready' state (sleeping 60s)"
 sleep 60
 
 # Joining the other Master nodes to the cluster 
@@ -72,6 +72,10 @@ for host in ${MASTERS_HOSTS_INIT}; do
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'mkdir -p ARMadillo/artifacts'
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'sudo mv join_master.sh ARMadillo/artifacts'
 done
+
+# Getting status
+echo "Waiting for other Master nodes to be in 'Ready' state (sleeping 60s)"
+sleep 60
 
 # Joining the Worker nodes to the cluster 
 for host in ${WORKERS_HOSTS}; do
