@@ -1,6 +1,8 @@
 # ARMadillo
 
-## Preparing the Pi's
+## Perquisites
+
+### Preparing the Pi's
 
 1. Download the Raspbian OS zip image. ARMadillo was tested working on both [raspbian stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-04-09/) and [raspbian buster lite](https://www.raspberrypi.org/downloads/raspbian/).
 
@@ -8,11 +10,13 @@
 
 ![raspbian buster lite download page](img/raspbian/buster.png)
 
-2. Flashing the Pi and the deploy Raspbian is easy. First, download and install [balenaEtcer](https://www.balena.io/etcher/?ref=etcher_footer).
+2. The LAN the Pi's are connected to needs to be DHCP-enabled. 
+
+3. Flashing the Pi and the deploy Raspbian is easy. First, download and install [balenaEtcer](https://www.balena.io/etcher/?ref=etcher_footer).
     -   Insert SD card to your SD card reader.
     -   Selecet the Raspbian zip file you've just downloaded.
     -   Select the SD card and hit the "Flash!".
-    -   Re-insert the SD card to your SD card reader.
+    -   Once flashing is done, re-insert the SD card to your SD card reader.
     -   Create *ssh* file and copy it to the */boot* partition. This is required to be able ssh the Pi. 
     -   Insert the card back to the Pi and power it on.
     -   Repeat these steps for each Pi in your cluster.  
@@ -26,21 +30,17 @@
 ![balenaEtcer06](img/balenaEtcer/06.png)
 ![ssh](img/balenaEtcer/ssh.png)
 
-## Perquisites
-
-1. Fork this repo :-)
-
-. The env_vars.sh file is the most important file as it will the determine, well, the environment variables for either the single or multi-master based deployment. Edit the *deploy/multi_master/env_vars.sh* file based on your environment. 
-
-- Push the changes to your fork repo.
-
-1. Edit your local hosts file where you will connect to the PI's from and add the HAProxy, masters and workers nodes hostname and IP based on the changes you just made to the *env_vars* file. 
-
-2. On each Pi, upgrade Pi firmware using the ```sudo rpi-update``` command.
+4. On each Pi, upgrade Pi firmware using the ```sudo rpi-update``` command.
 
 	<https://github.com/weaveworks/weave/issues/3717>
     
 	<https://github.com/Hexxeh/rpi-update>
+
+5. Fork this repo :-)
+
+6. The env_vars.sh file is the most important file as it will the determine the environment variables for either the single or multi-master deployment. Edit the *deploy/multi_master/env_vars.sh* file based on your environment and push the changes to your forked repo.
+
+7. Edit your local hosts file where you will connect to the PI's from and add the HAProxy, masters and workers nodes hostname and IP based on the changes you just made to the *env_vars* file. 
 
 ## Multi-Master Deployment
 
