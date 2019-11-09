@@ -1,5 +1,8 @@
 # ARMadillo
 
+ARM
+
+
 ## Perquisites
 
 ### Preparing the Pi's
@@ -36,11 +39,13 @@
     
 	<https://github.com/Hexxeh/rpi-update>
 
-5. Fork this repo :-)
+### Edit the *env_vars* file
 
-6. The env_vars.sh file is the most important file as it will the determine the environment variables for either the single or multi-master deployment. Edit the *deploy/multi_master/env_vars.sh* file based on your environment and push the changes to your forked repo.
+1. Fork this repo :-)
 
-7. Edit your local hosts file where you will connect to the PI's from and add the HAProxy, masters and workers nodes hostname and IP based on the changes you just made to the *env_vars* file. 
+2. The env_vars.sh file is the most important file as it will the determine the environment variables for either the single or multi-master deployment. Edit the *deploy/multi_master/env_vars.sh* file based on your environment and push the changes to your forked repo.
+
+3. Edit your local hosts file where you will connect to the PI's from and add the HAProxy, masters and workers nodes hostname and IP based on the changes you just made to the *env_vars* file. 
 
 ## Multi-Master Deployment
 
