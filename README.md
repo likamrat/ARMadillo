@@ -4,7 +4,7 @@
 
 1. Download the Raspbian OS zip image. ARMadillo was tested working on both [raspbian stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-04-09/) and [raspbian buster lite](https://www.raspberrypi.org/downloads/raspbian/).
 
-![raspbian stretch download page](https://github.com/likamrat/ARMadillo/blob/master/img/Pi_prep/buster.png)
+![raspbian stretch download page](ARMadillo/img/Pi_prep/stretch.png)
 
 ![raspbian buster lite download page](ARMadillo/img/Pi_prep/buster.png)
 
