@@ -9,30 +9,22 @@
 ![raspbian buster lite download page](img/raspbian/buster.png)
 
 2. Flashing the Pi and the deploy Raspbian is easy.
-    -   Download and install [balenaEtcer](https://www.balena.io/etcher/?ref=etcher_footer)
+    -   Download and install [balenaEtcer](https://www.balena.io/etcher/?ref=etcher_footer).
     -   Insert SD card to your SD card reader.
     -   Selecet the Raspbian zip file you've just downloaded.
     -   Select the SD card and hit the "Flash!".
     -   Re-insert the SD card to your SD card reader.
-    -   Create *ssh* file and copy it to the */boot* partition.
+    -   Create *ssh* file and copy it to the */boot* partition. This is required in order to ssh to the Pi. 
     -   Insert the card back to the Pi and power it on.  
 
 ![card reader](img/balenaEtcer/reader.jpg)
-
 ![balenaEtcer01](img/balenaEtcer/01.png)
-
 ![balenaEtcer02](img/balenaEtcer/02.png)
-
 ![balenaEtcer03](img/balenaEtcer/03.png)
-
 ![balenaEtcer04](img/balenaEtcer/04.png)
-
 ![balenaEtcer05](img/balenaEtcer/05.png)
-
 ![balenaEtcer06](img/balenaEtcer/06.png)
-
 ![ssh](img/balenaEtcer/ssh.png)
-
 
 ## Perquisites
 
