@@ -1,30 +1,46 @@
 # ARMadillo
 
+## Preparing the Pi's
+
+1. Download the Raspbian OS zip image. ARMadillo was tested working on both [raspbian stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-04-09/) and [raspbian buster lite](https://www.raspberrypi.org/downloads/raspbian/).
+
+![raspbian stretch download page](/img/PI_prep/stretch.png)
+
+![raspbian buster lite download page](/img/PI_prep/buster.png)
+
+
+
 ## Perquisites
 
-1. Edit your local hosts file where you will connect to the PI's from and add the HAProxy, masters and workers nodes hostname and IP. 
+1. Fork this repo :-)
 
-2. On each Pi, upgrade Pi firmware using the sudo rpi-update command.
-<!-- https://github.com/weaveworks/weave/issues/3717 -->
-<!-- https://github.com/Hexxeh/rpi-update -->
+. The env_vars.sh file is the most important file as it will the determine, well, the environment variables for either the single or multi-master based deployment. Edit the *deploy/multi_master/env_vars.sh* file based on your environment. 
 
+- Push the changes to your fork repo.
 
+1. Edit your local hosts file where you will connect to the PI's from and add the HAProxy, masters and workers nodes hostname and IP based on the changes you just made to the *env_vars* file. 
+
+2. On each Pi, upgrade Pi firmware using the ```sudo rpi-update``` command.
+
+	<https://github.com/weaveworks/weave/issues/3717>
+    
+	<https://github.com/Hexxeh/rpi-update>
 
 ## Multi-Master Deployment
 
-1. Login to the HAProxy node using the allocated DHCP address and the default "raspberry" password.
-
-ssh pi@<DHCP_ADDRESS>
+1. SSH to the HAProxy node using the allocated DHCP address and the default *raspberry* password.
 
 2. Clone ARMadillo github repository
 
-git clone https://github.com/likamrat/ARMadillo.git
+	```git clone https://github.com/likamrat/ARMadillo.git```
 
-3. Run the "haproxy_config_hosts.sh" script and wait for the host to restart.
+3. 
 
-./ARMadillo/deploy/multi_master/haproxy_config_hosts.sh
+4. Run the "haproxy_config_hosts.sh" script and wait for the host to restart.
 
-4. Test successful login using the new hostname/IP allocated and the username/password you edited in the env_vars.sh file (if was changed).
+	```./ARMadillo/deploy/multi_master/haproxy_config_hosts.sh```
+
+5. Test successful login using the new hostname/IP and the username/password you allocated in step 3.
 
 5. Repeat steps 1-4 for all remaining masters and workers node. Run the "<node_name>_config_hosts" script on each master/worker respectively:
 
@@ -36,7 +52,7 @@ git clone https://github.com/likamrat/ARMadillo.git
 
 ### Install HAProxy & generate certificates
 
-6. Run the HAProxy installation and certificates generation script
+6. Run the HAProxy installation and certificates generation script.
 
 ./ARMadillo/deploy/multi_master/haproxy_install.sh
 
@@ -59,4 +75,3 @@ Before moving to next step, wait for all masters and workers nodes to restart.
 Results should like this:
 
 <ADD_PIC>
-

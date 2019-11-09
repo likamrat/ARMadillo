@@ -68,7 +68,6 @@ for host in ${MASTERS_HOSTS_INIT}; do
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'echo "Wait, pulling k8s images needed..."'
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'sudo kubeadm config images pull'
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host './join_master.sh'
-    sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'kubectl label node $HOSTNAME node-role.kubernetes.io/master=master'
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'mkdir -p ARMadillo/artifacts'
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'sudo mv join_master.sh ARMadillo/artifacts'
 done
