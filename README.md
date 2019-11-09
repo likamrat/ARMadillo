@@ -13,8 +13,9 @@
     -   Selecet the Raspbian zip file you've just downloaded.
     -   Select the SD card and hit the "Flash!".
     -   Re-insert the SD card to your SD card reader.
-    -   Create *ssh* file and copy it to the */boot* partition. This is required in order to ssh to the Pi. 
-    -   Insert the card back to the Pi and power it on.  
+    -   Create *ssh* file and copy it to the */boot* partition. This is required to be able ssh the Pi. 
+    -   Insert the card back to the Pi and power it on.
+    -   Repeat these steps for each Pi in your cluster.  
 
 ![card reader](img/balenaEtcer/reader.jpg)
 ![balenaEtcer01](img/balenaEtcer/01.png)
