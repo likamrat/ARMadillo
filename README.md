@@ -8,8 +8,7 @@
 
 ![raspbian buster lite download page](img/raspbian/buster.png)
 
-2. Flashing the Pi and the deploy Raspbian is easy.
-    -   Download and install [balenaEtcer](https://www.balena.io/etcher/?ref=etcher_footer).
+2. Flashing the Pi and the deploy Raspbian is easy. First, download and install [balenaEtcer](https://www.balena.io/etcher/?ref=etcher_footer).
     -   Insert SD card to your SD card reader.
     -   Selecet the Raspbian zip file you've just downloaded.
     -   Select the SD card and hit the "Flash!".
