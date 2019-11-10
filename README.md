@@ -26,7 +26,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
     -   Insert SD card to your SD card reader.
     -   Select the Raspbian zip file you've just downloaded.
     -   Select the SD card and hit the "Flash!".
-    -   Once flashing is done, re-insert the SD card to your SD card reader.
+    -   Once flashing is done, re-insert the SD card to your SD card reader (as balenaEtcer will unmount the SD card)
     -   Create *ssh* file and copy it to the */boot* partition. This is required to be able ssh the Pi. 
     -   Insert the card back to the Pi and power it on.
     -   Repeat these steps for each Pi in your cluster.  
@@ -41,7 +41,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 ![ssh](img/balenaEtcer/ssh.png)
 
 4. Now that each PI has it's own DHCP-allocated IP address, ssh to the PI and upgrade its firmware using the 
-```sudo rpi-update``` command.
+```sudo rpi-update``` command and reboot.
 
 	<https://github.com/weaveworks/weave/issues/3717>
     
@@ -63,7 +63,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 2. Clone ARMadillo github repository
 
-	```git clone https://github.com/likamrat/ARMadillo.git```
+	```sudo sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
 
 3. Run the "haproxy_config_hosts.sh" script and wait for the host to restart.
 
@@ -83,26 +83,33 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 ### Install HAProxy & generate certificates
 
-7. On the HAProxy Pi, run the deployment and certificates generation script.
+6. On the HAProxy Pi, run the deployment and certificates generation script.
 
 ./ARMadillo/deploy/multi_master/haproxy_install.sh
 
-### Kubernetes nodes perquisites 
+### Kubernetes nodes perquisites
 
 7. Run the perquisites script on all masters and workers nodes (no need to run this on the HAProxy Pi)
 
-This step can ~5-10min per node as the script upgrade and update the Pi OS and install kubeadm.  
+**Note: This step can ~10min per node BUT it is OK run the perquisites in parallel on each master/worker**
 
-./ARMadillo/deploy/multi_master/all_k8s_nodes_install_prereq.sh
+    - On MASTER01 run: ./ARMadillo/deploy/multi_master/master01_perquisites.sh
+    - On MASTER02 run: ./ARMadillo/deploy/multi_master/master02_perquisites.sh
+    - On MASTER03 run: ./ARMadillo/deploy/multi_master/master03_perquisites.sh
+    - On WORKER01 run: ./ARMadillo/deploy/multi_master/worker01_perquisites.sh
+    - On WORKER02 run: ./ARMadillo/deploy/multi_master/worker02_perquisites.sh
 
-Before moving to next step, wait for all masters and workers nodes to restart. 
+Before moving on to the next step, wait for all masters and workers nodes to restart. 
 
-### Install kubeadm
+### Initializing kubeadm
 
-8. On *MASTER01 only*, run the kubeadm initialization script.
+8. On **MASTER01 only**, run the kubeadm initialization script. The script will:
 
-./ARMadillo/deploy/multi_master/master01_kubeadm_init.sh
+```./ARMadillo/deploy/multi_master/master01_kubeadm_init.sh```
 
-Results should like this:
+    - Create and will join the first node as *MASTER01* to k8s cluster.
+    - Will remotely do the same for all the master and worker nodes. 
 
-<ADD_PIC>
+Once the script run has finished, the k8s cluster will be up and running.
+
+![ssh](img/kubeadm/k8s_ready.png)

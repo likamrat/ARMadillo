@@ -64,10 +64,6 @@ sudo apt-mark hold "docker-ce-cli"
 
 sudo rm -f *docker* *containerd*
 
-# Updating...
-sudo apt-get update
-sudo apt-get upgrade -y
-
 # Setting iptables to legacy mode
 # https://github.com/weaveworks/weave/issues/3717
 sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
