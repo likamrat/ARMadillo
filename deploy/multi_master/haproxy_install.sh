@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# Source env vars
+# Sourcing env vars
 source ARMadillo/deploy/multi_master/env_vars.sh
 
-# Install sshpass, cfssl and cfssljson
+# Updating...
+# Installing sshpass, cfssl and cfssljson
 sudo apt-get update
 sudo apt-get upgrade -y
 
@@ -149,7 +150,7 @@ cfssl gencert \
 ls -la
 openssl x509 -in kubernetes.pem -text -noout
 
-# Copy certificates to Kubernetes master nodes
+# Copy certificates to master nodes
 for host in ${MASTERS_HOSTS}; do
     sudo sshpass -p $Pi_PASSWORD rsync -r ca.pem kubernetes.pem kubernetes-key.pem $Pi_USERNAME@$host:
 done
