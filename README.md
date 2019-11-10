@@ -98,10 +98,10 @@ Before moving on to the next step, wait for all masters and workers nodes to res
 
 7. On **MASTER01 only**, run the kubeadm initialization script. The script will:
 
-```./ARMadillo/deploy/multi_master/master01_kubeadm_init.sh```
+    * Create and will join the first node as *MASTER01* to k8s cluster.
+    * Will remotely do the same for all the master and worker nodes. 
 
-    - Create and will join the first node as *MASTER01* to k8s cluster.
-    - Will remotely do the same for all the master and worker nodes. 
+```./ARMadillo/deploy/multi_master/master01_kubeadm_init.sh```
 
 Once the script run has finished, the k8s cluster will be up and running.
 
