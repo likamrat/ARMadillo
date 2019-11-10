@@ -38,8 +38,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
 # Getting status
-echo "Waiting for the first Master node to be in 'Ready' state (sleeping 60s)"
-sleep 60
+echo "Waiting for the first Master node to be in 'Ready' state (sleeping 75s)"
+sleep 75
 
 # Joining the other Master nodes to the cluster 
 for host in ${MASTERS_HOSTS_INIT}; do
@@ -73,8 +73,8 @@ for host in ${MASTERS_HOSTS_INIT}; do
 done
 
 # Getting status
-echo "Waiting for the other Master nodes to be in 'Ready' state (sleeping 60s)"
-sleep 60
+echo "Waiting for the other Master nodes to be in 'Ready' state (sleeping 75s)"
+sleep 75
 
 # Joining the Worker nodes to the cluster 
 for host in ${WORKERS_HOSTS}; do
