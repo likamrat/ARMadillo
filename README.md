@@ -1,7 +1,14 @@
 # ARMadillo
 
-ARM
+"ARMadillo" is a "pet project", created to provide a way to deploy Kubernetes cluster on Raspberry Pi in both a single and a multi-master topologies, all using simple bash scripts and leveraging the native capabilities of the [kubeadm project](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/).
 
+This repo provide the software stack of ARMadillo. For an overview of the hardware stack and the buildout process, please visit the [ARMadillo](http://thewalkingdevs.io/tag/armadillo/) page on my personal blog.
+
+## Architecture
+
+![ARMadillo Kubernetes Multi-Master Deployment](img/architecture/multi_master_logical.png)
+
+![ARMadillo Kubernetes Single-Master Deployment](img/architecture/single_master_logical.png)
 
 ## Perquisites
 
@@ -33,7 +40,7 @@ ARM
 ![balenaEtcer06](img/balenaEtcer/06.png)
 ![ssh](img/balenaEtcer/ssh.png)
 
-4. On each Pi, upgrade Pi firmware using the ```sudo rpi-update``` command.
+4. Now that each PI has it's own DHCP-allocated IP address, ssh to the PI and upgrade its firmware using the ```sudo rpi-update``` command.
 
 	<https://github.com/weaveworks/weave/issues/3717>
     
