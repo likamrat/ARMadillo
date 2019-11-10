@@ -78,11 +78,11 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 **Note: This step can ~10min per node BUT it is OK run the perquisites in parallel on each master/worker**
 
-On MASTER01 run: ```./ARMadillo/deploy/multi_master/master01_perquisites.sh```<br/>
-On MASTER02 run: ```./ARMadillo/deploy/multi_master/master02_perquisites.sh```<br/>
-On MASTER03 run: ```./ARMadillo/deploy/multi_master/master03_perquisites.sh```<br/>
-On WORKER01 run: ```./ARMadillo/deploy/multi_master/worker01_perquisites.sh```<br/>
-On WORKER02 run: ```./ARMadillo/deploy/multi_master/worker02_perquisites.sh```
+    * On MASTER01 run: ```./ARMadillo/deploy/multi_master/master01_perquisites.sh```<br/>
+    * On MASTER02 run: ```./ARMadillo/deploy/multi_master/master02_perquisites.sh```<br/>
+    * On MASTER03 run: ```./ARMadillo/deploy/multi_master/master03_perquisites.sh```<br/>
+    * On WORKER01 run: ```./ARMadillo/deploy/multi_master/worker01_perquisites.sh```<br/>
+    * On WORKER02 run: ```./ARMadillo/deploy/multi_master/worker02_perquisites.sh```
 
 Before moving on to the next step, wait for all masters and workers nodes to restart. 
 
