@@ -6,8 +6,10 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 ## Architecture
 
-![ARMadillo Kubernetes Multi-Master Deployment](img/architecture/multi_master_logical.png)
+### ARMadillo Kubernetes Multi-Master Deployment Architecture
+![ARMadillo Kubernetes Multi-Master Deployment Architecture](img/architecture/multi_master_logical.png)
 
+### ARMadillo Kubernetes Single-Master Deployment Architecture
 ![ARMadillo Kubernetes Single-Master Deployment](img/architecture/single_master_logical.png)
 
 ## Perquisites
