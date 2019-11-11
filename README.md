@@ -8,8 +8,8 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 ### ARMadillo Kubernetes Multi-Master Deployment Hardware Architecture
 ![ARMadillo Kubernetes Multi-Master Deployment Architecture](img/architecture/multi_master_logical.png)
 
-### ARMadillo Kubernetes Single-Master Deployment Hardware Architecture
-![ARMadillo Kubernetes Single-Master Deployment](img/architecture/single_master_logical.png)
+### ARMadillo Kubernetes Single Master Deployment Hardware Architecture
+![ARMadillo Kubernetes Single Master Deployment](img/architecture/single_master_logical.png)
 
 ## Perquisites
 ### Preparing the Pi's
@@ -111,4 +111,4 @@ Once the script run has finished, the k8s cluster will be up and running.
 
 ![ssh](img/kubeadm/k8s_ready.png)
 
-## ARMadillo k8s Single-Master Deployment
+## ARMadillo k8s Single Master Deployment
