@@ -69,6 +69,10 @@ sudo rm -f *docker* *containerd*
 sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
 sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
+# Updating...
+sudo apt-get update
+sudo apt-get upgrade -y
+
 # Change the hostname
 sudo hostnamectl --transient set-hostname $MASTER03_HOSTNAME
 sudo hostnamectl --static set-hostname $MASTER03_HOSTNAME
