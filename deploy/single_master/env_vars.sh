@@ -19,7 +19,7 @@ export  WORKER04_IP=192.168.1.85
 export  WORKER05_IP=192.168.1.86
 export  DNS=192.168.1.1
 
-# No need to change unless you have more then 3 masters and 2 workers
+# No need to change unless you have less or more workers
 export MASTERS_HOSTS="$MASTER01_HOSTNAME"
 export MASTERS_IPS="$MASTER01_IP"
 export WORKERS_HOSTS="$WORKER01_HOSTNAME $WORKER02_HOSTNAME $WORKER03_HOSTNAME $WORKER04_HOSTNAME $WORKER05_HOSTNAME"

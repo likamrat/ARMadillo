@@ -56,6 +56,8 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 ## ARMadillo k8s Multi-Master Deployment
 ### Clone the repo
 
+**Note: For multi master deployment, ARMadillo supports more then 3 master and more/less then 2 worker nodes. To add more master nodes and add/subtract worker nodes, simply edit these in the ```ARMadillo/deploy/multi_master/env_vars.sh``` file.** 
+
 1. SSH to the masters and workers nodes using the default *raspberry* password and clone the ARMadillo github repository you've just forked.
 
 	```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
