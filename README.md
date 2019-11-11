@@ -40,47 +40,39 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 ![balenaEtcer06](img/balenaEtcer/06.png)
 ![ssh](img/balenaEtcer/ssh.png)
 
-<!-- 4. Now that each PI has it's own DHCP-allocated IP address, ssh to the PI and upgrade its firmware and wait for the Pi to reboot.
-
-    ```sudo RPI_REBOOT=1 rpi-update```
-
-	<https://github.com/weaveworks/weave/issues/3717>
-    
-	<https://github.com/Hexxeh/rpi-update> -->
-
 ### Edit the *env_vars* file
 
-5. Fork this repo :-)
+4. Fork this repo :-)
 
-6. The env_vars.sh file is the most important file as it will the determine the environment variables for either the single or multi-master deployment. Based on your deployment, edit the *env_vars.sh* file, commit & push the changes to your forked repo.
+5. The env_vars.sh file is the most important file as it will the determine the environment variables for either the single or multi-master deployment. Based on your deployment, edit the *env_vars.sh* file, commit & push the changes to your forked ARMadillo repo.
 
-* For multi-master deployment, edit the ```deploy/multi_master/env_vars.sh``` file.
-* For single master deployment, edit the ```deploy/single_master/env_vars.sh``` file.
+* For multi-master deployment, edit the ```ARMadillo/deploy/multi_master/env_vars.sh``` file.
+* For single master deployment, edit the ```ARMadillo/deploy/single_master/env_vars.sh``` file.
 
-**Note: ARMadillo deployment scripts [sourcing](https://linuxize.com/post/bash-source-command/) the _env_vars_ file arguments upon execution. The edit in step 5 is a one-time edit.**
+**Note: ARMadillo deployment scripts [source](https://linuxize.com/post/bash-source-command/) the _env_vars_ file arguments upon execution. The _env_vars_ edit is a one-time edit.**
 
-7. To make things a lot easier for you, edit your local hosts file where you will connect to the PI's from and add the HAProxy, masters and workers nodes hostname/IP based on the changes you just made to the *env_vars* file. 
+6. To make things a lot easier for you, edit your local hosts file where you will connect to the PI's from and add the HAProxy, masters and workers nodes hostname/IP based on the changes you just made to the *env_vars* file. 
 
 ## ARMadillo k8s Multi-Master Deployment
-### Prepare HAProxy Load Balancer
+### Clone the repo
 
-1. SSH to the HAProxy node using the allocated DHCP address and the default *raspberry* password.
-
-2. Clone ARMadillo github repository you've just forked.
+1. SSH to the masters and workers nodes using the default *raspberry* password and clone the ARMadillo github repository you've just forked.
 
 	```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
 
-3. Run the "haproxy_config_hosts.sh" script and wait for the host to restart.
+### Prepare HAProxy Load Balancer
+
+2. Run the "haproxy_config_hosts.sh" script and wait for the host to restart.
 
 	```./ARMadillo/deploy/multi_master/haproxy_config_hosts.sh```
 
-4. From your local environment, test successful login to the HAProxy node using the new hostname/IP and the username/password you previously allocated.
+3. From your local environment, test successful login to the HAProxy node using the new hostname/IP and the username/password you previously allocated.
 
 ### Kubernetes nodes perquisites
 
-5. Run the perquisites script on all masters and workers nodes.
+4. SSH to the masters and workers nodes and run the perquisites script.
 
-**Note: This step can ~10min per node BUT it is OK run the perquisites in parallel on each master/worker**
+**Note: This step can ~10min per node BUT it's safe run the perquisites in parallel on each master/worker**
 
 * On MASTER01 run: ```./ARMadillo/deploy/multi_master/master01_perquisites.sh```<br/>
 * On MASTER02 run: ```./ARMadillo/deploy/multi_master/master02_perquisites.sh```<br/>
@@ -94,13 +86,13 @@ Before moving on to the next step, wait for all masters and workers nodes to res
 
 ### Install HAProxy & generate certificates
 
-6. On the HAProxy Pi, run the deployment and certificates generation script.
+5. On the HAProxy Pi, run the deployment and certificates generation script.
 
 ```./ARMadillo/deploy/multi_master/haproxy_install.sh```
 
-### Initializing kubeadm
+### Initializing kubeadm to deploy the k8s cluster
 
-7. On **MASTER01 only**, run the kubeadm initialization script. The script will:
+6. On **MASTER01 only**, run the kubeadm initialization script. The script will:
 
 * Create and will join the first node as *MASTER01* to k8s cluster.
 * Will remotely do the same for all the master and worker nodes. 
@@ -114,13 +106,13 @@ Once the script run has finished, the k8s cluster will be up and running.
 ## ARMadillo k8s Single Master Deployment
 ### Kubernetes nodes perquisites
 
-1. Clone ARMadillo github repository you've just forked.
+1. SSH to the master and workers nodes using the default *raspberry* password and clone the ARMadillo github repository you've just forked.
 
 	```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
 
-2. Run the perquisites script on all masters and workers nodes.
+2. Run the perquisites script on the master and each of the workers nodes.
 
-**Note: This step can ~10min per node BUT it is OK run the perquisites in parallel on each master/worker**
+**Note: This step can ~10min per node BUT it's safe run the perquisites in parallel on each master/worker**
 
 * On MASTER01 run: ```./ARMadillo/deploy/single_master/master01_perquisites.sh```<br/>
 * On WORKER01 run: ```./ARMadillo/deploy/single_master/worker01_perquisites.sh```<br/>
@@ -133,7 +125,7 @@ Before moving on to the next step, wait for all masters and workers nodes to res
 
 **At this point, all nodes should be able to ping one another using it's hostname/IP.**
 
-### Initializing kubeadm
+### Initializing kubeadm to deploy the k8s cluster
 
 3. On **the only master node**, run the kubeadm initialization script. The script will:
 
