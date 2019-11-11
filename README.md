@@ -116,11 +116,11 @@ Once the script run has finished, the k8s cluster will be up and running.
 
 **Note: This step can ~15min per node BUT it's safe run the perquisites in parallel on each master/worker**
 
-* On MASTER01 run: ```./ARMadillo/deploy/single_master/master01_perquisites.sh```<br/>
-* On WORKER01 run: ```./ARMadillo/deploy/single_master/worker01_perquisites.sh```<br/>
-* On WORKER02 run: ```./ARMadillo/deploy/single_master/worker02_perquisites.sh```<br/>
-* On WORKER03 run: ```./ARMadillo/deploy/single_master/worker03_perquisites.sh```<br/>
-* On WORKER04 run: ```./ARMadillo/deploy/single_master/worker04_perquisites.sh```<br/>
+* On MASTER01 run: ```./ARMadillo/deploy/single_master/master01_perquisites.sh```
+* On WORKER01 run: ```./ARMadillo/deploy/single_master/worker01_perquisites.sh```
+* On WORKER02 run: ```./ARMadillo/deploy/single_master/worker02_perquisites.sh```
+* On WORKER03 run: ```./ARMadillo/deploy/single_master/worker03_perquisites.sh```
+* On WORKER04 run: ```./ARMadillo/deploy/single_master/worker04_perquisites.sh```
 * On WORKER05 run: ```./ARMadillo/deploy/single_master/worker05_perquisites.sh```
 
 Before moving on to the next step, wait for all masters and workers nodes to restart. 
