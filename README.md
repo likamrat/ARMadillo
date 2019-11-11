@@ -56,7 +56,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 ## ARMadillo k8s Multi-Master Deployment
 ### Clone the repo
 
-**Note: For multi master deployment, ARMadillo supports more then 3 master and more/less then 2 worker nodes. To add more master nodes and add/subtract worker nodes, simply edit these in the ```ARMadillo/deploy/multi_master/env_vars.sh``` file.** 
+**Note: For multi master deployment, ARMadillo supports more then 3 master and more/less then 2 worker nodes. To add more master nodes and add/subtract worker nodes, simply edit these in the _ARMadillo/deploy/multi_master/env_vars.sh_ file.** 
 
 1. SSH to the masters and workers nodes using the default *raspberry* password and clone the ARMadillo github repository you've just forked.
 
@@ -74,7 +74,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 4. SSH to the masters and workers nodes and run the perquisites script.
 
-**Note: This step can ~10min per node BUT it's safe run the perquisites in parallel on each master/worker**
+**Note: This step can ~15min per node BUT it's safe run the perquisites in parallel on each master/worker**
 
 * On MASTER01 run: ```./ARMadillo/deploy/multi_master/master01_perquisites.sh```<br/>
 * On MASTER02 run: ```./ARMadillo/deploy/multi_master/master02_perquisites.sh```<br/>
@@ -114,7 +114,7 @@ Once the script run has finished, the k8s cluster will be up and running.
 
 2. Run the perquisites script on the master and each of the workers nodes.
 
-**Note: This step can ~10min per node BUT it's safe run the perquisites in parallel on each master/worker**
+**Note: This step can ~15min per node BUT it's safe run the perquisites in parallel on each master/worker**
 
 * On MASTER01 run: ```./ARMadillo/deploy/single_master/master01_perquisites.sh```<br/>
 * On WORKER01 run: ```./ARMadillo/deploy/single_master/worker01_perquisites.sh```<br/>
