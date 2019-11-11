@@ -26,10 +26,13 @@ sudo mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
 # Create haproxy config file
 sudo cat <<EOT >> haproxy.cfg
 defaults
-  timeout connect 5000ms
-  timeout check 5000ms
-  timeout server 30000ms
-  timeout client 30000
+    mode http
+    log global
+    retries 2
+    timeout connect 3000ms
+    timeout check   5000ms
+    timeout server  5000ms
+    timeout client  5000ms
 
 global
   tune.ssl.default-dh-param 2048

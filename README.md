@@ -41,7 +41,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 ![ssh](img/balenaEtcer/ssh.png)
 
 4. Now that each PI has it's own DHCP-allocated IP address, ssh to the PI and upgrade its firmware using the 
-```sudo rm /boot/.firm* && sudo RPI_REBOOT=1 rpi-update``` command and wait for the PI to reboot.
+```sudo rm /boot/.firm* && sudo RPI_REBOOT=1 rpi-update``` command and wait for the Pi to reboot.
 
 	<https://github.com/weaveworks/weave/issues/3717>
     
@@ -57,7 +57,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 7. To make things a lot easier for you, edit your local hosts file where you will connect to the PI's from and add the HAProxy, masters and workers nodes hostname/IP based on the changes you just made to the *env_vars* file. 
 
-## K8s Multi-Master Deployment
+## ARMadillo k8s Multi-Master Deployment
 ### Prepare HAProxy Load Balancer
 
 1. SSH to the HAProxy node using the allocated DHCP address and the default *raspberry* password.

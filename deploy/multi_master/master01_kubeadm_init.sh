@@ -4,13 +4,13 @@ exec &> >(tee -a kubeadm_run.log)
 # Source env vars
 source ARMadillo/deploy/multi_master/env_vars.sh
 
-# # Create kubeadm config file and start kubeadm init
-# sudo cat <<EOT >> kubeadm-config.yaml
-# apiVersion: kubeadm.k8s.io/v1beta2
-# kind: ClusterConfiguration
-# kubernetesVersion: stable
-# controlPlaneEndpoint: "$LOAD_BALANCER_IP:$LOAD_BALANCER_PORT"
-# EOT
+# Create kubeadm config file and start kubeadm init
+sudo cat <<EOT >> kubeadm-config.yaml
+apiVersion: kubeadm.k8s.io/v1beta2
+kind: ClusterConfiguration
+kubernetesVersion: stable
+controlPlaneEndpoint: "$LOAD_BALANCER_IP:$LOAD_BALANCER_PORT"
+EOT
 
 echo "Wait, pulling k8s images needed..."
 sudo kubeadm config images pull
