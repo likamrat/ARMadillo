@@ -52,7 +52,10 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 5. Fork this repo :-)
 
-6. The env_vars.sh file is the most important file as it will the determine the environment variables for either the single or multi-master deployment. Edit the *deploy/multi_master/env_vars.sh* file based on your environment, commit & push the changes to your forked repo.
+6. The env_vars.sh file is the most important file as it will the determine the environment variables for either the single or multi-master deployment. Based on your deployment, edit the *env_vars.sh* file, commit & push the changes to your forked repo.
+
+* For multi-master deployment, edit the ```deploy/multi_master/env_vars.sh``` file.
+* For single master deployment, edit the ```deploy/single_master/env_vars.sh``` file.
 
 **Note: ARMadillo deployment scripts [sourcing](https://linuxize.com/post/bash-source-command/) the _env_vars_ file arguments upon execution. The edit in step 5 is a one-time edit.**
 
@@ -63,7 +66,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 1. SSH to the HAProxy node using the allocated DHCP address and the default *raspberry* password.
 
-2. Clone ARMadillo github repository
+2. Clone ARMadillo github repository you've just forked.
 
 	```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
 
@@ -107,3 +110,5 @@ Before moving on to the next step, wait for all masters and workers nodes to res
 Once the script run has finished, the k8s cluster will be up and running.
 
 ![ssh](img/kubeadm/k8s_ready.png)
+
+## ARMadillo k8s Single-Master Deployment

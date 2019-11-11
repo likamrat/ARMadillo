@@ -81,6 +81,6 @@ sudo mv kubeadm-config.yaml ARMadillo/artifacts
 sudo mv kubeadm_run.log ARMadillo/artifacts
 
 # Getting status
-echo "Almost there, waiting for all nodes to be in 'Ready' state (sleeping 30s)"
-sleep 30
+echo "Almost there, waiting for all nodes to be in 'Ready' state (sleeping 60s)"
+sleep 60
 kubectl get nodes
