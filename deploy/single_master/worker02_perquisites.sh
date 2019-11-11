@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Sourcing env vars
-source ARMadillo/deploy/multi_master/env_vars.sh
+source ARMadillo/deploy/single_master/env_vars.sh
 
 # Updating...
 sudo apt-get update
