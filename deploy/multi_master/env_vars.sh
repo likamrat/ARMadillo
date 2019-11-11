@@ -6,6 +6,7 @@ export  Pi_PASSWORD="raspberry"   # Pi default OS password is "raspberry"
 
 # Network parameters
 export  LOAD_BALANCER_HOSTNAME=armadillo-haproxy
+export  LOAD_BALANCER_PORT=6443
 export  MASTER01_HOSTNAME=armadillo-k8s-master01
 export  MASTER02_HOSTNAME=armadillo-k8s-master02
 export  MASTER03_HOSTNAME=armadillo-k8s-master03
