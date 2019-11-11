@@ -5,7 +5,6 @@ source ARMadillo/deploy/multi_master/env_vars.sh
 
 # Updating...
 sudo apt-get update
-sudo apt-get dist-upgrade -y
 sudo apt-get upgrade -y
 
 # Installing sshpass
@@ -69,10 +68,6 @@ sudo rm -f *docker* *containerd*
 # https://github.com/weaveworks/weave/issues/3717
 sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
 sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
-
-# Updating...
-sudo apt-get update
-sudo apt-get upgrade -y
 
 # Change the hostname
 sudo hostnamectl --transient set-hostname $MASTER01_HOSTNAME

@@ -19,7 +19,7 @@ sudo mv cfssl_linux-arm /usr/local/bin/cfssl
 sudo mv cfssljson_linux-arm /usr/local/bin/cfssljson
 cfssl version
 
-# Install haproxy
+# Installing haproxy
 sudo apt-get install haproxy -y
 sudo mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
 
@@ -102,7 +102,7 @@ cfssl gencert -initca ca-csr.json | cfssljson -bare ca
 ls -la
 openssl x509 -in ca.pem -text -noout
 
-#Generate the single Kubernetes TLS Cert
+# Generate the single Kubernetes TLS Cert
 sudo cat > kubernetes-csr.json <<EOF
 {
   "CN": "kubernetes",
@@ -150,7 +150,7 @@ cfssl gencert \
 ls -la
 openssl x509 -in kubernetes.pem -text -noout
 
-# Copy certificates to master nodes
-for host in ${MASTERS_HOSTS}; do
-    sudo sshpass -p $Pi_PASSWORD rsync -r ca.pem kubernetes.pem kubernetes-key.pem $Pi_USERNAME@$host:
-done
+# # Copy certificates to master nodes
+# for host in ${MASTERS_HOSTS}; do
+#     sudo sshpass -p $Pi_PASSWORD rsync -r ca.pem kubernetes.pem kubernetes-key.pem $Pi_USERNAME@$host:
+# done
