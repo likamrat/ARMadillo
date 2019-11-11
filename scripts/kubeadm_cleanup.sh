@@ -11,5 +11,6 @@ sudo rm -f join_worker.sh
 sudo rm -f kubeadm_run.log
 sudo rm -f config
 docker rmi $(docker images --filter=reference="*weaveworks/weave*" -q)
+sudo rm -Rf /var/lib/weave
 sudo rm -Rf ARMadillo 
 git clone https://github.com/likamrat/ARMadillo.git

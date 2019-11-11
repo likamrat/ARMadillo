@@ -109,6 +109,35 @@ Before moving on to the next step, wait for all masters and workers nodes to res
 
 Once the script run has finished, the k8s cluster will be up and running.
 
-![ssh](img/kubeadm/k8s_ready.png)
+![ssh](img/kubeadm/multi_master_ready.png)
 
 ## ARMadillo k8s Single Master Deployment
+### Kubernetes nodes perquisites
+
+1. Run the perquisites script on all masters and workers nodes.
+
+**Note: This step can ~10min per node BUT it is OK run the perquisites in parallel on each master/worker**
+
+* On MASTER01 run: ```./ARMadillo/deploy/multi_master/master01_perquisites.sh```<br/>
+* On WORKER01 run: ```./ARMadillo/deploy/multi_master/worker01_perquisites.sh```<br/>
+* On WORKER02 run: ```./ARMadillo/deploy/multi_master/worker02_perquisites.sh```<br/>
+* On WORKER03 run: ```./ARMadillo/deploy/multi_master/worker03_perquisites.sh```<br/>
+* On WORKER04 run: ```./ARMadillo/deploy/multi_master/worker04_perquisites.sh```<br/>
+* On WORKER05 run: ```./ARMadillo/deploy/multi_master/worker05_perquisites.sh```
+
+Before moving on to the next step, wait for all masters and workers nodes to restart. 
+
+**At this point, all nodes should be able to ping one another using it's hostname/IP.**
+
+### Initializing kubeadm
+
+2. On **the only master node**, run the kubeadm initialization script. The script will:
+
+* Create and will join the first node as *MASTER01* to k8s cluster.
+* Will remotely do the same for all the worker nodes. 
+
+```./ARMadillo/deploy/single_master/master01_kubeadm_init.sh```
+
+Once the script run has finished, the k8s cluster will be up and running.
+
+![ssh](img/kubeadm/single_master_ready.png)
