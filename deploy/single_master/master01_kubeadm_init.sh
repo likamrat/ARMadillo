@@ -37,7 +37,7 @@ sleep 60
 # Joining the Worker nodes to the cluster 
 for host in ${WORKERS_HOSTS}; do
     sudo sshpass -p $Pi_PASSWORD rsync -p -a --chmod=+x join_worker.sh $Pi_USERNAME@$host:
-    sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'source ARMadillo/deploy/multi_master/env_vars.sh'
+    sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'source ARMadillo/deploy/single_master/env_vars.sh'
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host 'mkdir -p $HOME/.kube'   
     sudo sshpass -p $Pi_PASSWORD rsync -a $HOME/.kube/config $Pi_USERNAME@$host:$HOME/.kube/
     sudo sshpass -p $Pi_PASSWORD ssh -o StrictHostKeyChecking=no $Pi_USERNAME@$host './join_worker.sh'
