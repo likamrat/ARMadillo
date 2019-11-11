@@ -84,7 +84,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 Before moving on to the next step, wait for all masters and workers nodes to restart. 
 
-**At this point, all nodes should be able to ping one another using it's hostname/IP.**
+**At this point, the HAProxy and all nodes should be able to ping one another using it's respective hostname/IP.**
 
 ### Install HAProxy & generate certificates
 

@@ -72,7 +72,7 @@ sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 # Updating...
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo SKIP_WARNING=1 rpi-update
+sudo rm /boot/.firm* && sudo SKIP_WARNING=1 rpi-update
 
 # Change the hostname
 sudo hostnamectl --transient set-hostname $WORKER04_HOSTNAME
