@@ -14,7 +14,7 @@ EOT
 
 echo "Wait, pulling k8s images needed..."
 sudo kubeadm config images pull
-sudo kubeadm init --control-plane-endpoint "$LOAD_BALANCER_HOSTNAME:$LOAD_BALANCER_PORT" --upload-certs
+sudo kubeadm init --config=kubeadm-config.yaml --control-plane-endpoint "$LOAD_BALANCER_HOSTNAME:$LOAD_BALANCER_PORT" --upload-certs
 
 # Creating scripts for joining the rest of the masters and workers
 grep "kubeadm join\|--discovery-token-ca-cert-hash\|--control-plane\|--certificate-key" kubeadm_run.log > join_master.sh
