@@ -5,10 +5,10 @@
 This repo provide the software stack of ARMadillo. For an overview of the hardware stack and the buildout process, please visit the [ARMadillo](http://thewalkingdevs.io/tag/armadillo/) page on my personal blog.
 
 ## Architecture
-### ARMadillo Kubernetes Multi-Master Deployment Architecture
+### ARMadillo Kubernetes Multi-Master Deployment Hardware Architecture
 ![ARMadillo Kubernetes Multi-Master Deployment Architecture](img/architecture/multi_master_logical.png)
 
-### ARMadillo Kubernetes Single-Master Deployment Architecture
+### ARMadillo Kubernetes Single-Master Deployment Hardware Architecture
 ![ARMadillo Kubernetes Single-Master Deployment](img/architecture/single_master_logical.png)
 
 ## Perquisites
@@ -41,7 +41,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 ![ssh](img/balenaEtcer/ssh.png)
 
 4. Now that each PI has it's own DHCP-allocated IP address, ssh to the PI and upgrade its firmware using the 
-```sudo rpi-update``` command and reboot.
+```sudo rm /boot/.firm* && sudo RPI_REBOOT=1 rpi-update``` command and wait for the PI to reboot.
 
 	<https://github.com/weaveworks/weave/issues/3717>
     

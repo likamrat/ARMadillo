@@ -21,6 +21,6 @@ sudo rm -f admin.conf
 sudo rm -f join_master.sh
 sudo rm -f join_worker.sh
 sudo rm -f config
-sudo rm -f cleanup.sh
+docker rmi $(docker images --filter=reference="*weaveworks/weave*" -q)
 sudo rm -Rf ARMadillo 
 git clone https://github.com/likamrat/ARMadillo.git
