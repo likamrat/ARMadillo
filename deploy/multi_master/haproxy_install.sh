@@ -152,8 +152,3 @@ cfssl gencert \
 # Verify that the kubernetes-key.pem and the kubernetes.pem file were generated
 ls -la
 openssl x509 -in kubernetes.pem -text -noout
-
-# # Copy certificates to master nodes
-# for host in ${MASTERS_HOSTS}; do
-#     sudo sshpass -p $Pi_PASSWORD rsync -r ca.pem kubernetes.pem kubernetes-key.pem $Pi_USERNAME@$host:
-# done
