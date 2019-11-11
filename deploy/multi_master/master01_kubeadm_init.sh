@@ -4,12 +4,20 @@ exec &> >(tee -a kubeadm_run.log)
 # Source env vars
 source ARMadillo/deploy/multi_master/env_vars.sh
 
+# Create kubeadm config file and start kubeadm init
+sudo cat <<EOT >> kubeadm-config.yaml
+apiVersion: kubeadm.k8s.io/v1beta2
+kind: ClusterConfiguration
+kubernetesVersion: stable
+controlPlaneEndpoint: "$LOAD_BALANCER_IP:6443"
+EOT
+
 echo "Wait, pulling k8s images needed..."
 sudo kubeadm config images pull
-sudo kubeadm init --control-plane-endpoint "$LOAD_BALANCER_HOSTNAME:$LOAD_BALANCER_PORT" --upload-certs
+sudo kubeadm init --config=kubeadm-config.yaml --upload-certs
 
 # Creating scripts for joining the rest of the masters and workers
-grep "kubeadm join\|--discovery-token-ca-cert-hash\|--control-plane\|--certificate-key" kubeadm_run.log > join_master.sh
+grep "kubeadm join\|--discovery-token-ca-cert-hash\|--control-plane" kubeadm_run.log > join_master.sh
 sed -i 's/^ *//' join_master.sh
 sed -i '1s/^/sudo /' join_master.sh
 sed -i '4,5d' join_master.sh
