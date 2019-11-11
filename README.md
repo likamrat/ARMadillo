@@ -40,13 +40,13 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 ![balenaEtcer06](img/balenaEtcer/06.png)
 ![ssh](img/balenaEtcer/ssh.png)
 
-4. Now that each PI has it's own DHCP-allocated IP address, ssh to the PI and upgrade its firmware and wait for the Pi to reboot.
+<!-- 4. Now that each PI has it's own DHCP-allocated IP address, ssh to the PI and upgrade its firmware and wait for the Pi to reboot.
 
     ```sudo RPI_REBOOT=1 rpi-update```
 
 	<https://github.com/weaveworks/weave/issues/3717>
     
-	<https://github.com/Hexxeh/rpi-update>
+	<https://github.com/Hexxeh/rpi-update> -->
 
 ### Edit the *env_vars* file
 
