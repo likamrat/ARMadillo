@@ -8,5 +8,3 @@ export  github_repo=<YOUR ARMadillo REPO HERE>          # For example: github.co
 export  dest_dir=<DESTINATION DIRECTORY HERE>           # For example: armadillo
 
 git clone https://$github_token@$github_repo $dest_dir
-
-rm -f /home/pi/git_clone_private.sh

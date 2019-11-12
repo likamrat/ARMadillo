@@ -62,7 +62,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 	```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
 
-**If you are using private github repository, a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) is required. After generating the token, edit the _ARMadillo/scripts/git_clone_private.sh_ and use it to clone the repository.**
+**If you are using private github repository, a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) is required. After generating the token, edit the _ARMadillo/scripts/git_clone/git_clone_private.sh_ and use it to clone the repository.**
 
 ### Prepare HAProxy Load Balancer
 
@@ -151,8 +151,12 @@ To gracefully shutdown a Raspberry Pi, use the ```sudo /sbin/shutdown -hP now```
 
 ## ARMadillo House Cleaning
 
-To reset kubeadm and k8s cluster deployment, run the kubeadm cleanup script on each master(s) and worker(s) node. The script will reset kubeadm, delete all artifects and "trail" files, delete the old ARMadillo repo from the Pi and will eventually clone the most up-to-date ARMadillo repo.
+To reset kubeadm and k8s cluster deployment, run the kubeadm cleanup script on each master(s) and worker(s) node. The script will reset kubeadm, delete all artifacts and "trail" files, delete the old ARMadillo repo from the Pi and will eventually clone the most up-to-date ARMadillo repo.
 
-```./ARMadillo/scripts/kubeadm_cleanup.sh```
+```./ARMadillo/scripts/kubeadm_cleanup/kubeadm_cleanup.sh```
+
+If you are using a private github repository, use the dedicated cleanup script.
+
+```./ARMadillo/scripts/kubeadm_cleanup/kubeadm_cleanup_private_repo```
 
 For the cleanup script to work, you will need to execute it from the Pi _/home/pi_ directory.
