@@ -1,17 +1,13 @@
 #!/bin/bash
 
-curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
-chmod 700 get_helm.sh
-./get_helm.sh
-
-sudo cat <<EOT >> tiller_rbac_config.yaml
+sudo cat <<EOT >> ARMadillo/addons/helm/tiller-rbac.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -25,4 +21,7 @@ subjects:
     namespace: kube-system
 EOT
 
-helm init --tiller-image=jessestuart/tiller --service-account tiller --history-max 200 --upgrade
+
+helm init --tiller-image=jessestuart/tiller --history-max 200 --upgrade
+kubectl apply -f ARMadillo/addons/helm/tiller-rbac.yaml
+helm init --tiller-image=jessestuart/tiller --service-account tiller
