@@ -62,6 +62,8 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 	```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
 
+**If you are using private github repository, a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) is required. After generating the token, edit the _ARMadillo/scripts/git_clone_private.sh_ and use it to clone the repository.**
+
 ### Prepare HAProxy Load Balancer
 
 2. Run the "haproxy_config_hosts.sh" script and wait for the host to restart.

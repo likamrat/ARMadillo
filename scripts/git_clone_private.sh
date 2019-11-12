@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Use for cloning a private ARMadillo repository into the Pi's
 
 sudo apt-get install git -qy
