@@ -105,7 +105,7 @@ Before moving on to the next step, wait for all masters and workers nodes to res
 
 Once the script run has finished, the k8s cluster will be up and running.
 
-![ssh](img/kubeadm/multi_master_ready.png)
+![Multi Master Cluster Ready](img/kubeadm/multi_master_ready.png)
 
 ## ARMadillo k8s Single Master Deployment
 ### Kubernetes nodes perquisites
@@ -140,7 +140,7 @@ Before moving on to the next step, wait for all masters and workers nodes to res
 
 Once the script run has finished, the k8s cluster will be up and running.
 
-![ssh](img/kubeadm/single_master_ready.png)
+![Single Master Cluster Ready](img/kubeadm/single_master_ready.png)
 
 ## ARMadillo Shutdown
 
@@ -155,4 +155,4 @@ To reset kubeadm and k8s cluster deployment, run the kubeadm cleanup script on e
 
 ```./ARMadillo/scripts/kubeadm_cleanup.sh```
 
-**Note: For the cleanup script to work, you will need to execute it from the Pi _/home/pi_ directory. 
+For the cleanup script to work, you will need to execute it from the Pi _/home/pi_ directory.
