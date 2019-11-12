@@ -76,10 +76,10 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 **Note: This step can ~15min per node BUT it's safe run the perquisites in parallel on each master/worker**
 
-* On MASTER01 run: ```./ARMadillo/deploy/multi_master/master01_perquisites.sh```<br/>
-* On MASTER02 run: ```./ARMadillo/deploy/multi_master/master02_perquisites.sh```<br/>
-* On MASTER03 run: ```./ARMadillo/deploy/multi_master/master03_perquisites.sh```<br/>
-* On WORKER01 run: ```./ARMadillo/deploy/multi_master/worker01_perquisites.sh```<br/>
+* On MASTER01 run: ```./ARMadillo/deploy/multi_master/master01_perquisites.sh```
+* On MASTER02 run: ```./ARMadillo/deploy/multi_master/master02_perquisites.sh```
+* On MASTER03 run: ```./ARMadillo/deploy/multi_master/master03_perquisites.sh```
+* On WORKER01 run: ```./ARMadillo/deploy/multi_master/worker01_perquisites.sh```
 * On WORKER02 run: ```./ARMadillo/deploy/multi_master/worker02_perquisites.sh```
 
 Before moving on to the next step, wait for all masters and workers nodes to restart. 
@@ -139,3 +139,18 @@ Before moving on to the next step, wait for all masters and workers nodes to res
 Once the script run has finished, the k8s cluster will be up and running.
 
 ![ssh](img/kubeadm/single_master_ready.png)
+
+## ARMadillo Shutdown
+
+To gracefully shutdown a Raspberry Pi, use the ```sudo /sbin/shutdown -hP now``` command. Also included in this repo is a remote shutdown script which you can use from your local environment for both the multi and single master deployment. 
+
+```./scripts/graceful_shudown/multi_master/graceful_shudown.sh```
+```./scripts/graceful_shudown/single_master/graceful_shudown.sh```
+
+## ARMadillo House Cleaning
+
+To reset kubeadm and k8s cluster deployment, run the kubeadm cleanup script on each master(s) and worker(s) node. The script will reset kubeadm, delete all artifects and "trail" files, delete the old ARMadillo repo from the Pi and will eventually clone the most up-to-date ARMadillo repo.
+
+```./ARMadillo/scripts/kubeadm_cleanup.sh```
+
+**Note: For the cleanup script to work, you will need to execute it from the Pi _/home/pi_ directory. 
