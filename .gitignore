@@ -5,5 +5,3 @@ addons/
 backup/
 storage/
 addons/azure_ haiku
-scripts/helm_cleanup/helm3rc_cleanup.sh
-addons/helm/helm3rc_install.sh
