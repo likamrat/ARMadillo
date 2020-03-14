@@ -60,7 +60,8 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 
 1. SSH to the masters and workers nodes using the default *raspberry* password and clone the ARMadillo github repository you've just forked.
 
-	```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
+	```sudo apt-get update```
+    ```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
 
 **If you are using private github repository, a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) is required. After generating the token, edit the _ARMadillo/scripts/git_clone/git_clone_private.sh_ and use it to clone the repository.**
 
@@ -113,7 +114,8 @@ Once the script run has finished, the k8s cluster will be up and running.
 
 1. SSH to the master and workers nodes using the default *raspberry* password and clone the ARMadillo github repository you've just forked.
 
-	```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
+	```sudo apt-get update```
+    ```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
 
 2. Run the perquisites script on the master and each of the workers nodes.
 

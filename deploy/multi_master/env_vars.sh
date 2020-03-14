@@ -19,7 +19,7 @@ export  MASTER02_IP=192.168.1.82
 export  MASTER03_IP=192.168.1.83
 export  WORKER01_IP=192.168.1.84
 export  WORKER02_IP=192.168.1.85
-export  WORKER03_IP=192.168.1.85
+export  WORKER03_IP=192.168.1.86
 export  DNS=192.168.1.1
 
 # haproxy certificates (change according to example below)
