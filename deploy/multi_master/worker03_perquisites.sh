@@ -17,7 +17,8 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
   sudo apt-get update -q && \
   sudo apt-get install -qy kubeadm
 
-echo Adding " cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory" to /boot/cmdline.txt
+echo Adding "cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory" to /boot/cmdline.txt
+echo "cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory" | sudo tee /boot/cmdline.txt
 
 sudo cp /boot/cmdline.txt /boot/cmdline_backup.txt
 orig="$(head -n1 /boot/cmdline.txt) cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory"
@@ -83,7 +84,7 @@ sudo sed -i s/raspberrypi/$WORKER03_HOSTNAME/g /etc/hosts
 # Set the static ip
 sudo cat <<EOT >> /etc/dhcpcd.conf
 interface eth0
-static ip_address=$WORKER02_IP/24
+static ip_address=$WORKER03_IP/24
 static routers=$DNS
 static domain_name_servers=$DNS
 EOT

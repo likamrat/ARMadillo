@@ -114,7 +114,7 @@ Once the script run has finished, the k8s cluster will be up and running.
 
 1. SSH to the master and workers nodes using the default *raspberry* password and clone the ARMadillo github repository you've just forked.
 
-	```sudo apt-get update```  
+	```sudo apt-get update```   
     ```sudo apt-get install git -qy && git clone https://github.com/<your github username>/ARMadillo.git```
 
 2. Run the perquisites script on the master and each of the workers nodes.
@@ -134,10 +134,7 @@ Before moving on to the next step, wait for all masters and workers nodes to res
 
 ### Initializing kubeadm to deploy the k8s cluster
 
-3. On **the only master node**, run the kubeadm initialization script. The script will:
-
-* Create and will join the first node as *MASTER01* to k8s cluster.
-* Will remotely do the same for all the worker nodes. 
+3. On **the only master node**, run the kubeadm initialization script. The script will create and will join the first node as *MASTER01* to k8s cluster and will remotely do the same for all the worker nodes. 
 
 ```./ARMadillo/deploy/single_master/master01_kubeadm_init.sh```
 

@@ -32,8 +32,8 @@ export  ST=WA
 # No need to change unless you have more then 3 masters and 2 workers
 export MASTERS_HOSTS="$MASTER01_HOSTNAME $MASTER02_HOSTNAME $MASTER03_HOSTNAME"
 export MASTERS_IPS="$MASTER01_IP $MASTER02_IP $MASTER03_IP"
-export WORKERS_HOSTS="$WORKER01_HOSTNAME $WORKER02_HOSTNAME $WORKER03_HOSTNAME"
-export WORKERS_IPS="$WORKER01_IP $WORKER02_IP $WORKER03_IP"
+export WORKERS_HOSTS="$WORKER01_HOSTNAME $WORKER02_HOSTNAME"
+export WORKERS_IPS="$WORKER01_IP $WORKER02_IP"
 
 # The following env vars will be used in the remote init process
 # No need to change unless you have more then 3 masters and 2 workers 

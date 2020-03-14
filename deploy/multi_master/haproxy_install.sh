@@ -57,6 +57,7 @@ listen apiserver
   server $MASTER03_HOSTNAME $MASTER03_IP:6443 check check-ssl verify none
   server $WORKER01_HOSTNAME $WORKER01_IP:6443 check check-ssl verify none
   server $WORKER02_HOSTNAME $WORKER02_IP:6443 check check-ssl verify none
+  server $WORKER03_HOSTNAME $WORKER03_IP:6443 check check-ssl verify none
 EOT
 
 sudo mv haproxy.cfg /etc/haproxy
