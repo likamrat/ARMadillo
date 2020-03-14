@@ -116,12 +116,14 @@ sudo cat > kubernetes-csr.json <<EOF
     "$MASTER03_HOSTNAME",
     "$WORKER01_HOSTNAME",
     "$WORKER02_HOSTNAME",
+    "$WORKER03_HOSTNAME",
     "$LOAD_BALANCER_IP",
     "$MASTER01_IP",
     "$MASTER02_IP",
     "$MASTER03_IP",
     "$WORKER01_IP",
     "$WORKER02_IP",
+    "$WORKER03_IP",
     "127.0.0.1"
   ],
   "key": {

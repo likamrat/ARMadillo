@@ -75,10 +75,10 @@ sudo apt-get upgrade -y
 sudo SKIP_WARNING=1 rpi-update
 
 # Change the hostname
-sudo hostnamectl --transient set-hostname $WORKER02_HOSTNAME
-sudo hostnamectl --static set-hostname $WORKER02_HOSTNAME
-sudo hostnamectl --pretty set-hostname $WORKER02_HOSTNAME
-sudo sed -i s/raspberrypi/$WORKER02_HOSTNAME/g /etc/hosts
+sudo hostnamectl --transient set-hostname $WORKER03_HOSTNAME
+sudo hostnamectl --static set-hostname $WORKER03_HOSTNAME
+sudo hostnamectl --pretty set-hostname $WORKER03_HOSTNAME
+sudo sed -i s/raspberrypi/$WORKER03_HOSTNAME/g /etc/hosts
 
 # Set the static ip
 sudo cat <<EOT >> /etc/dhcpcd.conf

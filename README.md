@@ -83,6 +83,7 @@ This repo provide the software stack of ARMadillo. For an overview of the hardwa
 * On MASTER03 run: ```./ARMadillo/deploy/multi_master/master03_perquisites.sh```
 * On WORKER01 run: ```./ARMadillo/deploy/multi_master/worker01_perquisites.sh```
 * On WORKER02 run: ```./ARMadillo/deploy/multi_master/worker02_perquisites.sh```
+* On WORKER03 run: ```./ARMadillo/deploy/multi_master/worker03_perquisites.sh```
 
 Before moving on to the next step, wait for all masters and workers nodes to restart. 
 
