@@ -2,7 +2,7 @@
 
 ARMadillo is a "pet project", designed to provide a way to deploy Kubernetes cluster on Raspberry Pi in both a single and a multi-master topologies, all using simple bash scripts and leveraging the native capabilities of [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/).
 
-This repo provide the software stack of ARMadillo. For an overview of the hardware stack and the build out process, please visit the [ARMadillo](http://thewalkingdevs.io/tag/armadillo/) page on my personal blog.
+This repo provide the software stack of ARMadillo. For an overview of the hardware stack and the build out process, please visit the [ARMadillo](https://thewalkingdevs.io/project_armadillo/) page on my personal blog.
 
 ## Architecture
 ### ARMadillo Kubernetes Multi-Master Deployment Hardware Architecture

@@ -51,24 +51,10 @@ sudo bash -c 'cat << EOF > /etc/docker/daemon.json
 }
 EOF'
 
-sudo mkdir -p /etc/systemd/system/docker.service.d
 
-# Restart docker
-# Preventing containerd docker packages to get updated
-# Cleanup
-sudo systemctl daemon-reload
-sudo systemctl restart docker
 
-sudo apt-mark hold "containerd.io"
-sudo apt-mark hold "docker-ce"
-sudo apt-mark hold "docker-ce-cli"
 
-sudo rm -f *docker* *containerd*
 
-# Setting iptables to legacy mode
-# https://github.com/weaveworks/weave/issues/3717
-sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
-sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
 # Updating...
 sudo apt-get update
